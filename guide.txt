@@ -1,0 +1,61 @@
+Weather data in a fast and elegant way
+We are providing highly recognisable weather products that make working with the weather data a way easier. We work with millions of developers around a clock and believe that these benefits might be suitable for most of applications, up to the complex enterprise systems.
+
+A spectrum of out-of-the box weather products
+
+Short-term and long-term forecasts, history and observation
+
+Any location on the globe
+
+Transparent pricing and licensing
+
+Our weather products are accessible via fast, reliable APIs that follow industry standards and compatible with different kind of enterprise systems. All our products content essential climate variables for any location. Besides that, we have some special products that helpful for industries that are affected by weather condition. Amongst them are Road Risk and national weather alerts.
+
+
+Out-of-the box weather products
+Openweather out-of-the box weather products cover majority of requirements for different businesses. In all our products, we provide essential weather parameters such as temperature, precipitation, probability of precipitation, humidity, feels like, pressure, cloudiness, wind, etc. The full list of weather parameters for every weather API you can find on the product pages in the API documentation.
+
+History for 40 years with hour granularity
+
+Current state with every 10 min update
+
+Forecast with minute granularity for the next one hour
+
+Forecast for 4 days with hour granularity
+
+Forecast for 16 days that give you data four times a day at night, day, evening, and morning
+
+Forecast for 30 days
+
+Global Precipitation Maps based on radar data, satellite images and powered by ML
+
+Global map layers such as current, forecasted and historical Temperature, Pressure, Wind speed, Clouds, and others; 15 layers in total
+
+
+Dedicated weather products
+Besides out-of-the box products, we provide dedicated weather products such as Road Risks that also might be helpful for specific application:
+
+Road Risk provides weather data and alerts along a route and at the point of destination, with minute accuracy for the first two hours
+
+Weather alerts from majority of national weather warning systems worldwide; available in One Call API with a short list of parameters and as a National Alerts API with a full list of parameters
+
+
+Openweather NWP model
+Openweather NWP (numerical weather prediction) allows to calculate weather data for any location. We use proprietary convolutional neural network that collects and processes wide range of data sources to cover any location and consider the local nuances of climate. ML technology allows us to reach resolution about 500 m and very high accuracy between 90% and 100% with inaccuracy about 1%. Amongst data sources we feed to the NWP are 82,000 weather stations spread globally; national meteorological agencies (NOAA, Environment Canada, Met Office, etc.), radars, weather satellites.
+
+
+How to start using Weather API
+If you want to start using Free or paid weather API, please read ‘How to start and operate with API more efficiently’.
+
+If you are ready to subscribe to our paid plans, please read ‘No-fuss subscription to our weather services’ first.
+
+Please read Terms and conditions of sale, Privacy policy, and Websites terms and conditions of use of use before you buy.
+
+Licenses we use for data and services.
+
+If you are an Enterprise license holder you can request for expanded features, customisation, configuration of APIs, and more exclusive support. For more details, please contact us.
+
+More than ever, our customer support team is at your side to answer all your questions and respond to your needs in the best possible way.
+
+If you do not find answers to your questions about purchasing process, subscriptions, products, please look at our comprehensive FAQ or contact our customer support team.
+

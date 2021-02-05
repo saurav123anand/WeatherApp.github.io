@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   <nav class="navbar">
+       <i class="fa fa-bars hamburger"></i>
+       <div class="menu">
+           <a href="./index.html">Home</a>
+           <a href="./guide.txt" target="_blank">Guide</a>
+           <a href="./api.txt" target="_blank">Api</a>
+       </div>
+       <div class="search">
+           <input type="text" name="" id="input" placeholder="search place">
+           <button class="btn">Check Weather</button>
+       </div>
+       <div class="fa fa-ellipsis-v dots"></div>
+   </nav>
+   <div class="time">
+       <span class="timeInfo">Current Date and Time Of India: </span>
+       <span class="date">date</span>
+       <span class="times">time</span>
+   </div>
+   <div class="container">
+       <div class="data">
+           <img src="" alt="img" id="img" style="display: block;">
+           <i class="fa fa-map-marker" style="font-size:22px; margin-right: 6px;"></i>
+           <span class="city_name">city,</span>
+           <span class="country_name">country</span>
+           <h2 class="temp">temperature</h2>
+           <div class="min_div">
+               <span class="min">Min temp: </span>
+               <span class="temp1">temp</span>
+           </div>
+           <div class="max_div">
+               <span class="max">Max temp: </span>
+               <span class="temp2">temp</span>
+           </div>
+       </div>
+   </div>
+   <script src="./script.js"></script>
+</body>
+</html>

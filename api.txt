@@ -1,0 +1,494 @@
+Current weather data
+Home
+API
+Current weather
+Call current weather data for one location
+By city name
+By city ID
+By geographic coordinates
+By ZIP code
+Call current weather data for several cities
+Cities within a rectangle zone
+Cities in circle
+Bulk downloading
+Weather fields in API response
+JSON
+XML
+List of condition codes
+Min/max temperature in current weather API and forecast API
+Other features
+Format
+Units of measurement
+Multilingual support
+Call back function for JavaScript code
+
+ 
+Access current weather data for any location on Earth including over 200,000 cities! We collect and process weather data from different sources such as global and local weather models, satellites, radars and vast network of weather stations. Data is available in JSON, XML, or HTML format.
+
+Call current weather data for one location
+By city name
+You can call by city name or city name, state code and country code. Please note that searching by states available only for the USA locations.
+
+API call
+
+api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+api.openweathermap.org/data/2.5/weather?q={city name},{state code}&appid={API key}
+
+api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
+
+Parameters
+q	required	City name, state code and country code divided by comma, use ISO 3166 country codes.
+You can specify the parameter not only in English. In this case, the API response should be returned in the same language as the language of requested location name if the location is in our predefined list of more than 200,000 locations.
+
+appid	required	Your unique API key (you can always find it on your account page under the "API key" tab)
+mode	optional	Response format. Possible values are xml and html. If you don't use the mode parameter format is JSON by default. Learn more
+units	optional	Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default. Learn more
+lang	optional	You can use this parameter to get the output in your language. Learn more
+Examples of API calls:
+
+api.openweathermap.org/data/2.5/weather?q=London&appid={API key}
+
+
+api.openweathermap.org/data/2.5/weather?q=London,uk&appid={API key}
+
+
+There is a possibility to receive a central district of the city/town with its own parameters (geographic coordinates/id/name) in API response. Example
+By city ID
+You can make an API call by city ID. List of city ID 'city.list.json.gz' can be downloaded here.
+
+We recommend to call API by city ID to get unambiguous result for your city.
+
+API call
+
+api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}
+
+Parameters
+id	required	City ID. List of city ID 'city.list.json.gz' can be downloaded here.
+appid	required	Your unique API key (you can always find it on your account page under the "API key" tab)
+mode	optional	Response format. Possible values are xml and html. If you don't use the mode parameter format is JSON by default. Learn more
+units	optional	Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default. Learn more
+lang	optional	You can use this parameter to get the output in your language. Learn more
+Examples of API calls
+
+api.openweathermap.org/data/2.5/weather?id=2172797&appid={API key}
+
+
+By geographic coordinates
+API call
+
+api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+
+Parameters
+lat, lon	required	Geographical coordinates (latitude, longitude)
+appid	required	Your unique API key (you can always find it on your account page under the "API key" tab)
+mode	optional	Response format. Possible values are xml and html. If you don't use the mode parameter format is JSON by default. Learn more
+units	optional	Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default. Learn more
+lang	optional	You can use this parameter to get the output in your language. Learn more
+Examples of API calls
+
+api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid={API key}
+
+
+By ZIP code
+Please note if country is not specified then the search works for USA as a default.
+
+API call
+
+api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}
+
+Parameters
+zip	required	Zip code
+appid	required	Your unique API key (you can always find it on your account page under the "API key" tab)
+mode	optional	Response format. Possible values are xml and html. If you don't use the mode parameter format is JSON by default. Learn more
+units	optional	Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default. Learn more
+lang	optional	You can use this parameter to get the output in your language. Learn more
+Examples of API calls
+
+api.openweathermap.org/data/2.5/weather?zip=94040,us&appid={API key}
+
+
+Call current weather data for several cities
+If you request weather data for several locations, you will get the response only in JSON format (XML and HTML formats are not available for these cases).
+
+Cities within a rectangle zone
+API returns the data from cities within the defined rectangle specified by the geographic coordinates.
+
+API call
+
+api.openweathermap.org/data/2.5/box/city?bbox={bbox}&appid={API key}
+
+Parameters
+bbox	required	Bounding box [lon-left,lat-bottom,lon-right,lat-top,zoom]
+appid	required	Your unique API key (you can always find it on your account page under the "API key" tab)
+units	optional	Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default. Learn more
+lang	optional	You can use this parameter to get the output in your language. Learn more
+Examples of API calls
+
+api.openweathermap.org/data/2.5/box/city?bbox=12,32,15,37,10&appid={API key}
+
+
+There is a limit of 25 square degrees for Free and Startup plans.
+Cities in circle
+API returns data from cities laid within definite circle that is specified by center point (lat, lon) and expected number of cities (cnt) around this point.
+
+API call
+
+api.openweathermap.org/data/2.5/find?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
+
+Parameters
+lat, lon	required	Geographical coordinates (latitude, longitude)
+appid	required	Your unique API key (you can always find it on your account page under the "API key" tab)
+cnt	optional	Number of cities around the point that should be returned. The default number of cities is 5, the maximum is 50.
+mode	optional	Response format. Possible values are xml and html. If you don't use the mode parameter format is JSON by default. Learn more
+units	optional	Units of measurement. standard, metric and imperial units are available. If you do not use the units parameter, standard units will be applied by default. Learn more
+lang	optional	You can use this parameter to get the output in your language. Learn more
+Examples of API calls
+
+api.openweathermap.org/data/2.5/find?lat=55.5&lon=37.5&cnt=10&appid={API key}
+
+
+Bulk downloading
+We provide number of bulk files with current weather and forecasts. The service allows you to regularly download current weather and forecast data in JSON format. There is no need to call an API to do this.
+
+More information is on the Bulk page.
+
+Examples of bulk files
+
+http://bulk.openweathermap.org/sample/
+
+Weather fields in API response
+If you do not see some of the parameters in your API response it means that these weather phenomena are just not happened for the time of measurement for the city or location chosen. Only really measured or calculated data is displayed in API response.
+JSON
+Example of API response
+
+
+                          
+
+{
+  "coord": {
+    "lon": -122.08,
+    "lat": 37.39
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 282.55,
+    "feels_like": 281.86,
+    "temp_min": 280.37,
+    "temp_max": 284.26,
+    "pressure": 1023,
+    "humidity": 100
+  },
+  "visibility": 16093,
+  "wind": {
+    "speed": 1.5,
+    "deg": 350
+  },
+  "clouds": {
+    "all": 1
+  },
+  "dt": 1560350645,
+  "sys": {
+    "type": 1,
+    "id": 5122,
+    "message": 0.0139,
+    "country": "US",
+    "sunrise": 1560343627,
+    "sunset": 1560396563
+  },
+  "timezone": -25200,
+  "id": 420006353,
+  "name": "Mountain View",
+  "cod": 200
+  }                         
+
+                        
+Fields in API response
+
+coord
+coord.lon City geo location, longitude
+coord.lat City geo location, latitude
+weather (more info Weather condition codes)
+weather.id Weather condition id
+weather.main Group of weather parameters (Rain, Snow, Extreme etc.)
+weather.description Weather condition within the group. You can get the output in your language. Learn more
+weather.icon Weather icon id
+base Internal parameter
+main
+main.temp Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
+main.feels_like Temperature. This temperature parameter accounts for the human perception of weather. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
+main.pressure Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
+main.humidity Humidity, %
+main.temp_min Minimum temperature at the moment. This is minimal currently observed temperature (within large megalopolises and urban areas). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
+main.temp_max Maximum temperature at the moment. This is maximal currently observed temperature (within large megalopolises and urban areas). Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit.
+main.sea_level Atmospheric pressure on the sea level, hPa
+main.grnd_level Atmospheric pressure on the ground level, hPa
+wind
+wind.speed Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour.
+wind.deg Wind direction, degrees (meteorological)
+wind.gust Wind gust. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour
+clouds
+clouds.all Cloudiness, %
+rain
+rain.1h Rain volume for the last 1 hour, mm
+rain.3h Rain volume for the last 3 hours, mm
+snow
+snow.1h Snow volume for the last 1 hour, mm
+snow.3h Snow volume for the last 3 hours, mm
+dt Time of data calculation, unix, UTC
+sys
+sys.type Internal parameter
+sys.id Internal parameter
+sys.message Internal parameter
+sys.country Country code (GB, JP etc.)
+sys.sunrise Sunrise time, unix, UTC
+sys.sunset Sunset time, unix, UTC
+timezone Shift in seconds from UTC
+id City ID
+name City name
+cod Internal parameter
+XML
+Example of API response
+
+
+                          
+
+  <current>
+  <city id="0" name="Mountain View">
+    <coord lon="-122.09" lat="37.39" />
+    <country>US</country>
+    <timezone>-28800</timezone>
+    <sun rise="2020-01-07T15:22:59" set="2020-01-08T01:05:37" />
+  </city>
+  <temperature value="278.07" min="273.15" max="282.59" unit="kelvin" />
+  <feels_like value="275.88" unit="kelvin" />
+  <humidity value="86" unit="%" />
+  <pressure value="1026" unit="hPa" />
+  <wind>
+    <speed value="0.93" unit="m/s" name="Calm" />
+    <gusts />
+    <direction value="23" code="NNE" name="North-northeast" />
+  </wind>
+  <clouds value="1" name="clear sky" />
+  <visibility value="16093" />
+  <precipitation mode="no" />
+  <weather number="800" value="clear sky" icon="01n" />
+  <lastupdate value="2020-01-07T11:33:40" />
+  </current>
+  
+
+  
+Parameters:
+city
+city.id City ID
+city.name City name
+city.coord
+city.coord.lon City geo location, longitude
+city.coord.lat City geo location, latitude
+city.country Country code (GB, JP etc.)
+timezoneShift in seconds from UTC
+city.sun
+city.sun.rise Sunrise time
+city.sun.set Sunset time
+temperature
+temperature.value Temperature
+temperature.min Minimum temperature at the moment of calculation. This is minimal currently observed temperature (within large megalopolises and urban areas), use this parameter optionally.
+temperature.max Maximum temperature at the moment of calculation. This is maximal currently observed temperature (within large megalopolises and urban areas), use this parameter optionally.
+temperature.unit Unit of measurements. Possilbe valure is Celsius, Kelvin, Fahrenheit.
+feels_like
+feels_like.value Temperature. This temperature parameter accounts for the human perception of weather.
+feels_like.unit Unit of measurements. Possilbe valure is Celsius, Kelvin, Fahrenheit. Unit Default: Kelvin
+humidity
+humidity.value Humidity value
+humidity.unit Humidity units, %
+pressure
+pressure.value Pressure value
+pressure.unit Pressure units, hPa
+wind
+wind.speed
+wind.speed.value Wind speed
+wind.speed.unit Wind speed units, m/s
+wind.speed.name Type of the wind
+wind.direction
+wind.direction.value Wind direction, degrees (meteorological)
+wind.direction.code Code of the wind direction. Possilbe value is WSW, N, S etc.
+wind.direction.name Full name of the wind direction.
+clouds
+clouds.value Cloudiness
+clouds.name Name of the cloudiness
+visibility
+visibility.value Visibility, meter
+precipitation
+precipitation.value Precipitation, mm
+precipitation.mode Possible values are 'no", name of weather phenomena as 'rain', 'snow'
+weather
+weather.number Weather condition id
+weather.value Weather condition name
+weather.icon Weather icon id
+lastupdate
+lastupdate.value Last time when data was updated
+List of weather condition codes
+List of weather condition codes with icons (range of thunderstorm, drizzle, rain, snow, clouds, atmosphere including extreme conditions like tornado, hurricane etc.)
+
+Min/max temperature in current weather API and forecast API
+Please, do not confuse min/max parameters in our weather APIs.
+
+In Current weather API, Hourly forecast API and 5 day / 3 hour forecast API - temp_min and temp_max are optional parameters mean min / max temperature in the city at the current moment just for your reference. For large cities and megalopolises geographically expanded it might be applicable. In most cases both temp_min and temp_max parameters have the same volume as 'temp'. Please, use temp_min and temp_max parameters in current weather API optionally.
+In 16 Day forecast - min and max mean maximum and minimum temperature in the day.
+Example of current weather API response
+
+
+  
+
+  "main":{
+     "temp":306.15, //current temperature
+     "pressure":1013,
+     "humidity":44,
+     "temp_min":306, //min current temperature in the city
+     "temp_max":306 //max current temperature in the city
+   }
+  
+
+  
+For comparison look at example of daily forecast weather API response:
+Example of daily forecast weather API response
+
+
+  
+
+  "dt":1406080800,
+  "temp":{
+        "day":297.77,  //daily averaged temperature
+        "min":293.52, //daily min temperature
+        "max":297.77, //daily max temperature
+        "night":293.52, //night temperature
+        "eve":297.77, //evening temperature
+        "morn":297.77}, //morning temperature
+  
+
+  
+Other features
+Format
+Response format. JSON format is used by default. To get data in XML format just set up mode = xml.
+
+Parameters
+mode	optional	Response format. Possible values are xml and html. If you don't use the mode parameter format is JSON by default.
+Example of API calls
+
+JSON
+
+api.openweathermap.org/data/2.5/weather?q=London&appid={API key}
+
+
+XML
+
+api.openweathermap.org/data/2.5/weather?q=London&mode=xml
+
+
+Units of measurement
+standard, metric, and imperial units are available. List of all API parameters with available units.
+
+Parameters
+units	optional	standard, metric, imperial. When you do not use the units parameter, format is standard by default.
+Temperature is available in Fahrenheit, Celsius and Kelvin units.
+
+For temperature in Fahrenheit use units=imperial
+For temperature in Celsius use units=metric
+Temperature in Kelvin is used by default, no need to use units parameter in API call
+List of all API parameters with units openweathermap.org/weather-data
+
+Examples of API calls:
+
+Standard
+
+api.openweathermap.org/data/2.5/find?q=London&appid={API key}
+
+
+metric
+
+api.openweathermap.org/data/2.5/find?q=London&units=metric
+
+
+imperial
+
+api.openweathermap.org/data/2.5/find?q=London&units=imperial
+
+
+Multilingual support
+You can use the lang parameter to get the output in your language.
+
+Translation is applied for the city name and description fields.
+
+API call
+
+http://api.openweathermap.org/data/2.5/weather?id=524901&appid={API key}&lang={lang}
+
+Parameters
+lang	optional	Language code
+Examples of API calls
+
+http://api.openweathermap.org/data/2.5/weather?id=524901&lang=fr&appid={API key}
+
+
+We support the following languages that you can use with the corresponded lang values:
+
+af Afrikaans
+al Albanian
+ar Arabic
+az Azerbaijani
+bg Bulgarian
+ca Catalan
+cz Czech
+da Danish
+de German
+el Greek
+en English
+eu Basque
+fa Persian (Farsi)
+fi Finnish
+fr French
+gl Galician
+he Hebrew
+hi Hindi
+hr Croatian
+hu Hungarian
+id Indonesian
+it Italian
+ja Japanese
+kr Korean
+la Latvian
+lt Lithuanian
+mk Macedonian
+no Norwegian
+nl Dutch
+pl Polish
+pt Portuguese
+pt_br Português Brasil
+ro Romanian
+ru Russian
+sv, se Swedish
+sk Slovak
+sl Slovenian
+sp, es Spanish
+sr Serbian
+th Thai
+tr Turkish
+ua, uk Ukrainian
+vi Vietnamese
+zh_cn Chinese Simplified
+zh_tw Chinese Traditional
+zu Zulu
+Call back function for JavaScript code
+To use JavaScript code you can transfer callback functionName to JSONP callback.
+Example of API call
+
+api.openweathermap.org/data/2.5/weather?q=London,uk&callback=test&appid={API key}
+
